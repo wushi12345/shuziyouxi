@@ -1,0 +1,121 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* 启动界面样式 */
+.start-screen {
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.start-screen button {
+  margin-top: 2rem;
+}
+
+.mode-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* 游戏界面样式 */
+.game-screen {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  animation: slideIn 0.3s ease-out;
+  text-align: center;
+}
+
+.game-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* 增加游戏标题文字亮度 */
+.game-header h2, .game-setup h3 {
+  color: #00FFFF; /* 更亮的青色 */
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* 添加发光效果 */
+  font-weight: bold;
+}
+
+.game-content {
+  min-height: 250px; /* 减小高度，使按钮之间距离更近 */
+  display: flex;
+  justify-content: center;
+}
+
+.game-controls {
+  margin-top: 1rem; /* 减小上边距 */
+  margin-bottom: 1rem; /* 减小下边距 */
+  display: flex;
+  justify-content: center;
+}
+
+/* 结算界面样式 */
+.result-screen {
+  text-align: center;
+  padding: 2rem;
+  animation: scaleIn 0.4s ease-in-out;
+}
+
+.result-content {
+  margin: 2rem 0;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .game-screen {
+    padding: 1rem;
+  }
+
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mode-selection {
+    gap: 1rem;
+  }
+}
+
+/* 错误状态动画 */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.error {
+  animation: shake 0.3s ease-in-out;
+  border-color: var(--alert-red) !important;
+  box-shadow: 0 0 15px var(--alert-red) !important;
+}
