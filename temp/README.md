@@ -1,15 +1,69 @@
-# React + TypeScript + Vite
+# AI数字游戏
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个基于React和TypeScript开发的智能数字猜谜游戏，融合赛博朋克与未来科技风格。
 
-Currently, two official plugins are available:
+## 功能特点
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 三种游戏模式：经典模式、极速模式和地狱模式
+- 智能AI对战系统
+- 可自定义数字范围（1-9999）
+- 实时历史记录追踪
+- 游戏成绩评级系统（SSS至S）
+- 赛博朋克风格UI设计
 
-## Expanding the ESLint configuration
+## 技术栈
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19
+- TypeScript
+- Vite
+- Material-UI
+- Three.js
+- GSAP
+- Howler.js
+
+## 安装说明
+
+1. 克隆项目到本地：
+```bash
+git clone [你的仓库URL]
+cd [项目目录]
+```
+
+2. 安装依赖：
+```bash
+npm install
+```
+
+3. 启动开发服务器：
+```bash
+npm run dev
+```
+
+4. 构建生产版本：
+```bash
+npm run build
+```
+
+## 使用说明
+
+1. 选择游戏模式：
+   - 经典模式：标准二分法算法
+   - 极速模式：预判跳跃算法
+   - 地狱模式：随机猜测+延迟策略
+
+2. 设置数字范围（可选）
+
+3. 开始游戏，与AI进行对战
+
+4. 查看历史记录和最终评级
+
+## 贡献指南
+
+欢迎提交Issue和Pull Request来帮助改进项目。
+
+## 许可证
+
+MIT License
 
 ```js
 export default tseslint.config({
