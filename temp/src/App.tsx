@@ -15,7 +15,7 @@ function App() {
   const [selectedMode, setSelectedMode] = useState<GameMode>(GameMode.CLASSIC)
 
   // 处理游戏结束
-  const handleGameOver = (gameState: any) => {
+  const handleGameOver = () => {
     setGameStage(GameStage.RESULT)
   }
 

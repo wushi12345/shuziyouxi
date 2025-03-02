@@ -42,7 +42,7 @@ export class SpeedStrategy implements AIStrategy {
     }
 
     // 分析历史猜测模式，调整跳跃步长
-    const lastGuess = history[history.length - 1];
+    const lastRecord = history[history.length - 1];
     // 根据历史记录计算有效范围
     let validMin = min;
     let validMax = max;
@@ -59,16 +59,16 @@ export class SpeedStrategy implements AIStrategy {
     const step = Math.max(1, Math.floor(range * 0.2)); // 增加步长以加快收敛
     
     let guess: number;
-    if (lastGuess.result === 'bigger') {
-      guess = Math.min(validMax, lastGuess.number + step);
+    if (lastRecord.result === 'bigger') {
+      guess = Math.min(validMax, lastRecord.number + step);
     } else {
-      guess = Math.max(validMin, lastGuess.number - step);
+      guess = Math.max(validMin, lastRecord.number - step);
     }
 
     // 避免重复猜测
     let attempts = 0;
     while (history.some(h => h.number === guess) && attempts < 100) {
-      guess = lastGuess.result === 'bigger' ?
+      guess = lastRecord.result === 'bigger' ?
         Math.min(validMax, guess + 1) :
         Math.max(validMin, guess - 1);
       attempts++;
@@ -93,7 +93,6 @@ export class HellStrategy implements AIStrategy {
     }
 
     // 使用上一次猜测的结果缩小范围
-    const lastGuess = history[history.length - 1];
     let validMin = min;
     let validMax = max;
 
